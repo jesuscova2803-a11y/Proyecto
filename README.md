@@ -73,12 +73,6 @@ pdm add playwright
 pdm add uiautomation
 ```
 
-Instalar navegadores de Playwright:
-
-```powershell
-playwright install
-```
-
 ---
 
 ## Verificar estructura de carpetas
