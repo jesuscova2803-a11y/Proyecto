@@ -1,4 +1,6 @@
-Automatización de Excel y Login Web con Playwright
+# Automatización de Excel y Login Web con Playwright
+
+## Descripción
 
 Este proyecto automatiza el siguiente flujo:
 
@@ -9,67 +11,122 @@ Este proyecto automatiza el siguiente flujo:
 5. Guarda una copia del archivo en una nueva ubicación.
 6. Cierra Excel automáticamente.
 
- Tecnologías utilizadas:
-* Python 3.12+
-* PDM
-* Playwright
-* UIAutomation
+---
 
-Instalar biblioteca pdm con pipx:
+## Tecnologías utilizadas
 
-powershell/cmd (como administrador)
+- Python 3.12+
+- PDM
+- Playwright
+- UIAutomation
 
+---
+
+## Instalación de PDM
+
+Abrir PowerShell o CMD como administrador:
+
+```powershell
 pip install pipx
 pipx install pdm
 pipx ensurepath
+```
 
-Descargar el proyecto:
+Verificar instalación:
 
-Descargar el ".zip".
-Ubicarse en la carpeta que desea usar para descomprimir el proyecto.
-Para ejecutar se debera usar desde la ruta:
+```powershell
+pdm --version
+```
 
-cd/ "ruta donde se descomprimio el proyecto"
+---
 
+## Descargar el proyecto
+
+1. Descargar el archivo `.zip`.
+2. Descomprimirlo en la carpeta deseada.
+3. Abrir una terminal en la carpeta del proyecto.
+
+Ejemplo:
+
+```powershell
+cd "C:\Users\Usuario\Desktop\PRUEBA"
+```
+
+Inicializar el entorno:
+
+```powershell
 pdm init
+```
 
-Instalar dependencias:
+---
 
+## Instalar dependencias
+
+```powershell
 pdm install
+```
 
-Si las dependencias no existen todavía:
+Si las dependencias no existen:
 
+```powershell
 pdm add playwright
 pdm add uiautomation
+```
 
-Verificar estructura de carpetas.
+Instalar navegadores de Playwright:
+
+```powershell
+playwright install
+```
+
+---
+
+## Verificar estructura de carpetas
 
 Antes de ejecutar el programa, verificar que exista el archivo Excel de entrada:
 
+```text
 data/
 ├── input/
 │   └── prueba.xlsx
 │
 └── output/
+```
 
-Si la carpeta output no existe, debe crearse manualmente.
+Si la carpeta `output` no existe, debe crearse manualmente.
 
 El archivo:
 
+```text
 prueba.xlsx
+```
 
 debe colocarse dentro de:
 
+```text
 data/input/
+```
 
 ya que será utilizado por la automatización para registrar el resultado de la prueba.
-Se recomienda abrir con anterioriad el archivo excel "prueba.xlsx" para habilitar el editado si este se descargo, de lo contrario se tiene que eliminar y crear otro archivo excel con el mismo nombre para evitar problemas.
 
+### Importante
 
+Si el archivo Excel fue descargado de Internet, se recomienda:
 
+1. Abrir `prueba.xlsx`.
+2. Habilitar edición si Excel lo solicita.
 
-Estructura del proyecto
+Si el archivo continúa presentando problemas, eliminarlo y crear un nuevo archivo Excel vacío con el mismo nombre:
 
+```text
+prueba.xlsx
+```
+
+---
+
+## Estructura del proyecto
+
+```text
 PRUEBA/
 │
 ├── data/
@@ -84,37 +141,66 @@ PRUEBA/
 │
 ├── pyproject.toml
 └── README.md
+```
 
+---
 
-
-Ejecución
+## Ejecución
 
 Desde la raíz del proyecto:
 
-powershell/cmd/bash
+```powershell
 pdm run python src/proyecto/main.py
+```
 
+---
 
-
-Resultado esperado
+## Resultado esperado
 
 El sistema:
 
-* Abre Excel.
-* Realiza Login en la página de pruebas.
-* Escribe el resultado en Excel.
-* Guarda una copia en: "data/output/modificado1.xlsx" 
-* Cierra Excel.
-* Finaliza la ejecución.
+- Abre Excel.
+- Realiza Login en la página de pruebas.
+- Escribe el resultado en Excel.
+- Guarda una copia en:
 
+```text
+data/output/modificado1.xlsx
+```
 
-Si se desean realizar mas pruebas tener en cuenta el archivo "modificado1.xlsx", este se tendra que elimnar o cambiarle el nombre para no tener problemas durante futuras ocasiones.
+- Cierra Excel.
+- Finaliza la ejecución.
 
+---
 
+## Consideraciones
 
-Credenciales utilizadas
+Si se desean realizar más pruebas, tener en cuenta que el archivo:
 
+```text
+modificado1.xlsx
+```
+
+ya existe en la carpeta `output`.
+
+Antes de una nueva ejecución se recomienda:
+
+- Eliminar el archivo anterior.
+- O cambiarle el nombre.
+
+Esto evitará conflictos durante el guardado.
+
+---
+
+## Credenciales utilizadas
+
+```text
 Usuario: student
 Contraseña: Password123
+```
 
-Página utilizada para el test login: https://practicetestautomation.com/practice-test-login/
+---
+
+## Página utilizada para la prueba
+
+https://practicetestautomation.com/practice-test-login/
