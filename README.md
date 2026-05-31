@@ -15,19 +15,57 @@ Este proyecto automatiza el siguiente flujo:
 * Playwright
 * UIAutomation
 
+Instalar biblioteca pdm con pipx:
+
+powershell/cmd (como administrador)
+
+pip install pipx
+pipx install pdm
+pipx ensurepath
+
+Descargar el proyecto:
+
+Descargar el ".zip".
+Ubicarse en la carpeta que desea usar para descomprimir el proyecto.
+Para ejecutar se debera usar desde la ruta:
+
+cd/ "ruta donde se descomprimio el proyecto"
+
+pdm init
 
 Instalar dependencias:
 
-powershell/cmd
-
 pdm install
-
 
 Si las dependencias no existen todavía:
 
-powershell/cmd
 pdm add playwright
 pdm add uiautomation
+
+Verificar estructura de carpetas.
+
+Antes de ejecutar el programa, verificar que exista el archivo Excel de entrada:
+
+data/
+├── input/
+│   └── prueba.xlsx
+│
+└── output/
+
+Si la carpeta output no existe, debe crearse manualmente.
+
+El archivo:
+
+prueba.xlsx
+
+debe colocarse dentro de:
+
+data/input/
+
+ya que será utilizado por la automatización para registrar el resultado de la prueba.
+Se recomienda abrir con anterioriad el archivo excel "prueba.xlsx" para habilitar el editado si este se descargo, de lo contrario se tiene que eliminar y crear otro archivo excel con el mismo nombre para evitar problemas.
+
+
 
 
 Estructura del proyecto
@@ -46,8 +84,6 @@ PRUEBA/
 │
 ├── pyproject.toml
 └── README.md
-(Verificar que en la ruta "data" exista una carpeta llamada "output" , si no se debera crear una para poder ejecutar programa)
-
 
 
 
@@ -70,6 +106,9 @@ El sistema:
 * Guarda una copia en: "data/output/modificado1.xlsx" 
 * Cierra Excel.
 * Finaliza la ejecución.
+
+
+Si se desean realizar mas pruebas tener en cuenta el archivo "modificado1.xlsx", este se tendra que elimnar o cambiarle el nombre para no tener problemas durante futuras ocasiones.
 
 
 
